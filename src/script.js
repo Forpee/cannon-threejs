@@ -39,6 +39,7 @@ const material = new THREE.ShaderMaterial({
 
 // Mesh
 const sphere = new THREE.Mesh(geometry, material);
+sphere.position.set(0, 0, 0);
 scene.add(sphere);
 
 /**
@@ -101,7 +102,7 @@ world.broadphase = new CANNON.NaiveBroadphase();
 var radius = 1; // m
 var sphereBody = new CANNON.Body({
     mass: 5, // kg
-    position: new CANNON.Vec3(0, 0, 10), // m
+    position: new CANNON.Vec3(0, 0, 0), // m
     shape: new CANNON.Box(new CANNON.Vec3(radius, radius, radius))
 });
 world.addBody(sphereBody);
@@ -133,7 +134,7 @@ const tick = () => {
         var dt = (elapsedTime - lastTime) / 1000;
         world.step(fixedTimeStep, dt, maxSubSteps);
     }
-    console.log("Sphere z position: " + sphereBody.position.z);
+    // console.log("Sphere z position: " + sphereBody.position.z);
     lastTime = elapsedTime;
     sphere.position.copy(sphereBody.position);
 
