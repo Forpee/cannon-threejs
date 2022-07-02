@@ -96,7 +96,7 @@ const clock = new THREE.Clock();
 var world = new CANNON.World({
     gravity: new CANNON.Vec3(0, 0, -9.82) // m/s²
 });
-
+world.broadphase = new CANNON.NaiveBroadphase();
 // Create a sphere
 var radius = 1; // m
 var sphereBody = new CANNON.Body({
