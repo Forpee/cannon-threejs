@@ -25,7 +25,7 @@ const scene = new THREE.Scene();
  * Test mesh
  */
 // Geometry
-const geometry = new THREE.SphereBufferGeometry(1, 32, 32);
+const geometry = new THREE.BoxBufferGeometry(1, 1, 1);
 
 // Material
 const material = new THREE.ShaderMaterial({
@@ -102,7 +102,7 @@ var radius = 1; // m
 var sphereBody = new CANNON.Body({
     mass: 5, // kg
     position: new CANNON.Vec3(0, 0, 10), // m
-    shape: new CANNON.Sphere(radius)
+    shape: new CANNON.Box(new CANNON.Vec3(radius, radius, radius))
 });
 world.addBody(sphereBody);
 
@@ -117,7 +117,7 @@ world.addBody(groundBody);
 var fixedTimeStep = 1.0 / 60.0; // seconds
 var maxSubSteps = 3;
 
-var lastTime;
+let lastTime;
 
 const tick = () => {
     // Update controls
