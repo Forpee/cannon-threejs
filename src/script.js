@@ -8,6 +8,7 @@ import gsap from 'gsap';
 import * as CANNON from 'cannon';
 
 console.log(CANNON);
+
 /**
  * Base
  */
@@ -90,6 +91,28 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
  * Animate
  */
 const clock = new THREE.Clock();
+
+// Setup our world
+var world = new CANNON.World({
+    gravity: new CANNON.Vec3(0, 0, -9.82) // m/s²
+});
+
+// Create a sphere
+var radius = 1; // m
+var sphereBody = new CANNON.Body({
+    mass: 5, // kg
+    position: new CANNON.Vec3(0, 0, 10), // m
+    shape: new CANNON.Sphere(radius)
+});
+world.addBody(sphereBody);
+
+// Create a plane
+var groundBody = new CANNON.Body({
+    mass: 0 // mass == 0 makes the body static
+});
+var groundShape = new CANNON.Plane();
+groundBody.addShape(groundShape);
+world.addBody(groundBody);
 
 const tick = () => {
     // Update controls
