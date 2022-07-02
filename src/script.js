@@ -38,8 +38,8 @@ const material = new THREE.ShaderMaterial({
 });
 
 // Mesh
-const mesh = new THREE.Mesh(geometry, material);
-scene.add(mesh);
+const sphere = new THREE.Mesh(geometry, material);
+scene.add(sphere);
 
 /**
  * Sizes
@@ -135,6 +135,7 @@ const tick = () => {
     }
     // console.log("Sphere z position: " + sphereBody.position.z);
     lastTime = elapsedTime;
+    sphere.position.copy(sphereBody.position);
 
     // Render
     renderer.render(scene, camera);
