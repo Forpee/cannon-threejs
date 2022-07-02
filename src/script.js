@@ -114,6 +114,11 @@ var groundShape = new CANNON.Plane();
 groundBody.addShape(groundShape);
 world.addBody(groundBody);
 
+var fixedTimeStep = 1.0 / 60.0; // seconds
+var maxSubSteps = 3;
+
+var lastTime;
+
 const tick = () => {
     // Update controls
     controls.update();
