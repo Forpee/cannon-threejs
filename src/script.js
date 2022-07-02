@@ -25,7 +25,7 @@ const scene = new THREE.Scene();
  * Test mesh
  */
 // Geometry
-const geometry = new THREE.SphereBufferGeometry(10, 32, 32);
+const geometry = new THREE.SphereBufferGeometry(1, 32, 32);
 
 // Material
 const material = new THREE.ShaderMaterial({
@@ -71,7 +71,7 @@ window.addEventListener('resize', () => {
 
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
-camera.position.set(0, 0, 20);
+camera.position.set(0, 0, 15);
 scene.add(camera);
 
 // Controls
