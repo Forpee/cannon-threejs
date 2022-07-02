@@ -131,7 +131,7 @@ const tick = () => {
 
     if (lastTime !== undefined) {
         var dt = (elapsedTime - lastTime) / 1000;
-        world.step(fixedTimeStep);
+        world.step(fixedTimeStep, dt, maxSubSteps);
     }
     // console.log("Sphere z position: " + sphereBody.position.z);
     lastTime = elapsedTime;
