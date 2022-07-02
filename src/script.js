@@ -133,7 +133,7 @@ const tick = () => {
         var dt = (elapsedTime - lastTime) / 1000;
         world.step(fixedTimeStep, dt, maxSubSteps);
     }
-    // console.log("Sphere z position: " + sphereBody.position.z);
+    console.log("Sphere z position: " + sphereBody.position.z);
     lastTime = elapsedTime;
     sphere.position.copy(sphereBody.position);
 
